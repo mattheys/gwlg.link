@@ -26,4 +26,4 @@ WORKDIR /root/
 COPY --from=builder /go/src/github.com/mattheys/gwlg.link/app .
 
 EXPOSE 10987
-ENTRYPOINT ["./app -db=/db/my.db"]
+ENTRYPOINT ["./app"]
