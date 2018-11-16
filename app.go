@@ -82,7 +82,7 @@ func SetRoot(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			log.Fatal(err)
 		}
-		http.Redirect(w, r, "https://www.google.com", 302)
+
 	}
 
 }
