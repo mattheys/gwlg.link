@@ -22,7 +22,8 @@ RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -i -v -ldflags="-X main.versi
 #
 FROM scratch
 WORKDIR /root/
-COPY --from=builder /go/src/github.com/mattheys/gwlg.link/app .
 
+COPY --from=builder /go/src/github.com/mattheys/gwlg.link/app .
+RUN mkdir -p /db
 EXPOSE 10987
-ENTRYPOINT ["./app"]
+ENTRYPOINT ["./app -db=/db/my.db"]

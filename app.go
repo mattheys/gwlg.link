@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -18,13 +19,16 @@ var (
 )
 
 func init() {
+	dbLocation := flag.String("db", "my.db", "Full path to the database file")
+	flag.Parse()
+
 	apiKey = os.Getenv("APIKEY")
 	if apiKey == "" {
 		log.Fatal("No API Key setup")
 	}
 
 	var err error
-	db, err = bolt.Open("my.db", 0600, nil)
+	db, err = bolt.Open(*dbLocation, 0600, nil)
 	if err != nil {
 		log.Fatal(err)
 	}
