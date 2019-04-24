@@ -93,5 +93,6 @@ func main() {
 	router.HandleFunc("/version", GetVersion).Methods("Get")
 	router.HandleFunc("/{url}", GetRoot).Methods("GET")
 	router.HandleFunc("/{url}", SetRoot).Methods("POST")
-	log.Fatal(http.ListenAndServe(":10987", router))
+	//log.Fatal(http.ListenAndServe(":10987", router))
+	log.Fatal(http.ListenAndServe(":80", router))
 }
