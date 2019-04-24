@@ -24,6 +24,7 @@
 #   go-tests = true
 #   unused-packages = true
 
+metadata.heroku["root-package"] = "github.com/mattheys/gwlg.link"
 
 [[constraint]]
   name = "github.com/gorilla/mux"
