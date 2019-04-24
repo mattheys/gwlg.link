@@ -89,10 +89,11 @@ func SetRoot(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	fmt.Println("Starting Version " + version)
+	port := os.Getenv("PORT")
 	router := mux.NewRouter()
 	router.HandleFunc("/version", GetVersion).Methods("Get")
 	router.HandleFunc("/{url}", GetRoot).Methods("GET")
 	router.HandleFunc("/{url}", SetRoot).Methods("POST")
 	//log.Fatal(http.ListenAndServe(":10987", router))
-	log.Fatal(http.ListenAndServe(":5000", router))
+	log.Fatal(http.ListenAndServe(":" + port, router))
 }
